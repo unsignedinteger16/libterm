@@ -1,0 +1,12 @@
+LibTerm - Lightweight terminal library in C99
+
+Supported Platforms:
+ - Linux
+
+Code Structure:
+ - examples: Examples of using LibTerm
+ - src: Source code of LibTerm
+  * events: libterm_events implementation
+  * linux: implementation of libterm for linux
+ - include: headers of libterm
+ - CMakeLists.txt: CMake file
