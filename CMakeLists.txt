@@ -22,5 +22,8 @@ set(LIBTERM_SHARED_SRC_GLOB "src/shared/*.c src/shared/*.h")
 
 file(GLOB SOURCES ${LIBTERM_EVENTS_SRC_GLOB} ${LIBTERM_SHARED_SRC_GLOB} ${LIBTERM_PLATFORM_SRC_GLOB})
 
-add_library(libterm ${SOURCES})
-target_include_directories(libterm PUBLIC  include/)
+add_library(libterm_shared SHARED ${SOURCES})
+target_include_directories(libterm_shared PUBLIC include/)
+
+add_library(libterm SHARED ${SOURCES})
+target_include_directories(libterm PUBLIC include/)
