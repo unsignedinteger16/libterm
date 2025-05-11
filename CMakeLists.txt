@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.30)
 project(libterm
-    VERSION 1.0.0
+    VERSION 0.0.1
     DESCRIPTION 
         "Lightweight terminal library in C99"
     LANGUAGES C

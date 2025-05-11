@@ -1,5 +1,7 @@
 LibTerm - Lightweight terminal library in C99
 
+### LIBTERM API CAN DRASTICLY CHANGE
+
 Supported Platforms:
  - Linux
 
