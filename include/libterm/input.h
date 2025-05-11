@@ -10,6 +10,7 @@
 
 #include <stdint.h>
 #include <libterm/result.h>
+#include <libterm/extern.h>
 
 typedef uint32_t Libterm_Key;
 
@@ -25,6 +26,6 @@ typedef uint32_t Libterm_Key;
 #define LIBTERM_PAGE_DOWN_KEY 0x10005
 #define LIBTERM_INVALID_KEY -1
 
-Libterm_Result libterm_read_key(Libterm_Key *key);
+LIBTERM_EXTERN Libterm_Result libterm_read_key(Libterm_Key *key);
 
 #endif

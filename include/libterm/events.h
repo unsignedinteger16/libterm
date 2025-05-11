@@ -8,6 +8,7 @@
 #ifndef LIBTERM_EVENTS_H__
 #define LIBTERM_EVENTS_H__
 
+#include <libterm/extern.h>
 #include <libterm/libterm.h>
 
 typedef enum {
@@ -29,14 +30,14 @@ typedef struct aaa {
     };
 } Libterm_Events_Event;
 
-Libterm_Result libterm_events_initialize();
-Libterm_Result libterm_events_clean();
-
+LIBTERM_EXTERN Libterm_Result libterm_events_initialize();
+LIBTERM_EXTERN Libterm_Result libterm_events_clean();
+ 
 // * * Passing LIBTERM_EVENTS_TYPE_NONE does nothing
-Libterm_Result libterm_events_enable_event_type(Libterm_Events_Event_Type type);
-Libterm_Result libterm_events_disable_event_type(Libterm_Events_Event_Type type);
+LIBTERM_EXTERN Libterm_Result libterm_events_enable_event_type(Libterm_Events_Event_Type type);
+LIBTERM_EXTERN Libterm_Result libterm_events_disable_event_type(Libterm_Events_Event_Type type);
 
-Libterm_Result libterm_events_update();
-Libterm_Result libterm_events_poll_event(Libterm_Events_Event *event);
+LIBTERM_EXTERN Libterm_Result libterm_events_update();
+LIBTERM_EXTERN Libterm_Result libterm_events_poll_event(Libterm_Events_Event *event);
 
 #endif

@@ -8,6 +8,7 @@
 #ifndef LIBTERM_CURSOR_H__
 #define LIBTERM_CURSOR_H__
 
+#include <extern.h>
 #include <libterm/result.h>
 
 #include <stdint.h>
@@ -20,8 +21,8 @@ typedef struct {
 
 #define LIBTERM_CREATE_CURSOR_POSITION(x, y) (Libterm_Cursor_Position){ .row = x, .column = y } 
 
-Libterm_Result libterm_set_cursor_pos(Libterm_Cursor_Position pos);
-Libterm_Result libterm_hide_cursor();
-Libterm_Result libterm_show_cursor();
+LIBTERM_EXTERN Libterm_Result libterm_set_cursor_pos(Libterm_Cursor_Position pos);
+LIBTERM_EXTERN Libterm_Result libterm_hide_cursor();
+LIBTERM_EXTERN Libterm_Result libterm_show_cursor();
 
 #endif

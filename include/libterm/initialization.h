@@ -8,9 +8,10 @@
 #ifndef LIBTERM_INITIALIZATION_H__
 #define LIBTERM_INITIALIZATION_H__
 
+#include <libterm/extern.h>
 #include <libterm/result.h>
 
-Libterm_Result libterm_initialize();
-Libterm_Result libterm_clean();
+LIBTERM_EXTERN Libterm_Result libterm_initialize();
+LIBTERM_EXTERN Libterm_Result libterm_clean();
 
 #endif

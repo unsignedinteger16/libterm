@@ -6,7 +6,9 @@ project(libterm
     LANGUAGES C
 )
 
+
 include(CMakePackageConfigHelpers)
+
 
 set(CMAKE_C_STANDARD 99)
 set(CMAKE_C_STANDARD_REQUIRED ON)
@@ -38,21 +40,9 @@ $<INSTALL_INTERFACE:include>)
 
 install(
     TARGETS libterm
-    EXPORT libterm_targets
+    EXPORT LibtermTargets
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
     INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
-)
-
-write_basic_package_version_file(
-    "LibtermConfigVersion.cmake"
-    VERSION ${PROJECT_VERSION}
-    COMPATIBILITY SameMajorVersion)
-
-install(
-    EXPORT libterm_targets
-    FILE GreeterTargets.cmake
-    NAMESPACE Greeter::
-    DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/cmake/greeter
 )
