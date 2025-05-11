@@ -68,6 +68,7 @@ int main() {
     while(1) {
         if(result = libterm_events_update() < LIBTERM_SUCCESS) return result;
         if(result = libterm_events_poll_event(&event) < LIBTERM_SUCCESS) return result;
+        if(result == LIBTERM_EMPTY) continue;
         switch (event.type) {
         case LIBTERM_EVENTS_TYPE_RESIZED:        
             state.size = event.resized.newSize;

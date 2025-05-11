@@ -92,14 +92,8 @@ Libterm_Result libterm_events_poll_event(Libterm_Events_Event *event) {
     Libterm_Events_Event polledEvent;
     Libterm_Result result = _libterm_events_queue_poll(&_state.queue, &polledEvent);
 
-    if(result < LIBTERM_SUCCESS) return result;
-    if (result == LIBTERM_EMPTY) {
-        *event = (Libterm_Events_Event){
-            .type = LIBTERM_EVENTS_TYPE_NONE,
-        };
-    } else {
-        *event = polledEvent;
-    }
+    if(result != LIBTERM_SUCCESS) return result;
     
+    *event = polledEvent;
     return LIBTERM_SUCCESS;
 }
