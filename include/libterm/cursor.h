@@ -8,7 +8,7 @@
 #ifndef LIBTERM_CURSOR_H__
 #define LIBTERM_CURSOR_H__
 
-#include <extern.h>
+#include <libterm/extern.h>
 #include <libterm/result.h>
 
 #include <stdint.h>
