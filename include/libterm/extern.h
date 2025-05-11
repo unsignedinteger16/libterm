@@ -9,7 +9,7 @@
 #define LIBTERM_EXTERN_H__
 
 #ifdef __cplusplus
-#define LIBTERM_EXTERN extern "c"
+#define LIBTERM_EXTERN extern "C"
 #else
 #define LIBTERM_EXTERN
 #endif
