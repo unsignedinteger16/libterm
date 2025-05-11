@@ -1,5 +1,15 @@
 cmake_minimum_required(VERSION 3.30)
-project(libterm)
+project(libterm
+    VERSION 1.0.0
+    DESCRIPTION 
+        "Lightweight terminal library in C99"
+    LANGUAGES C
+)
+
+include(CMakePackageConfigHelpers)
+
+set(CMAKE_C_STANDARD 99)
+set(CMAKE_C_STANDARD_REQUIRED ON)
 
 option(LIBTERM_ENABLE_EVENTS "Enables events system" ON)
 option(LIBTERM_COMPILE_EXAMPLES "Compiles examples" OFF)
@@ -22,8 +32,27 @@ set(LIBTERM_SHARED_SRC_GLOB "src/shared/*.c src/shared/*.h")
 
 file(GLOB SOURCES ${LIBTERM_EVENTS_SRC_GLOB} ${LIBTERM_SHARED_SRC_GLOB} ${LIBTERM_PLATFORM_SRC_GLOB})
 
-add_library(libterm_shared SHARED ${SOURCES})
-target_include_directories(libterm_shared PUBLIC include/)
+add_library(libterm ${SOURCES})
+target_include_directories(libterm PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>  
+$<INSTALL_INTERFACE:include>)
 
-add_library(libterm SHARED ${SOURCES})
-target_include_directories(libterm PUBLIC include/)
+install(
+    TARGETS libterm
+    EXPORT libterm_targets
+    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+    INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
+)
+
+write_basic_package_version_file(
+    "LibtermConfigVersion.cmake"
+    VERSION ${PROJECT_VERSION}
+    COMPATIBILITY SameMajorVersion)
+
+install(
+    EXPORT libterm_targets
+    FILE GreeterTargets.cmake
+    NAMESPACE Greeter::
+    DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/cmake/greeter
+)

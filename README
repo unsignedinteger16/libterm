@@ -3,6 +3,18 @@ LibTerm - Lightweight terminal library in C99
 Supported Platforms:
  - Linux
 
+Compilation:
+  mkdir build
+  cd build
+  cmake ..
+  cmake --build .
+
+Installation:
+  mkdir build
+  cd build
+  cmake ..
+  cmake --build . --target install
+
 Code Structure:
  - examples: Examples of using LibTerm
  - src: Source code of LibTerm
