@@ -19,7 +19,7 @@ typedef struct {
     uint16_t column;
 } Libterm_Cursor_Position;
 
-#define LIBTERM_CREATE_CURSOR_POSITION(x, y) (Libterm_Cursor_Position){ .row = x, .column = y } 
+#define LIBTERM_CREATE_CURSOR_POSITION(x, y) (Libterm_Cursor_Position){ .column = x, .row = y } 
 
 LIBTERM_EXTERN Libterm_Result libterm_set_cursor_pos(Libterm_Cursor_Position pos);
 LIBTERM_EXTERN Libterm_Result libterm_hide_cursor();

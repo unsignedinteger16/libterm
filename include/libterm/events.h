@@ -12,7 +12,6 @@
 #include <libterm/libterm.h>
 
 typedef enum {
-    LIBTERM_EVENTS_TYPE_NONE = 0,
     LIBTERM_EVENTS_TYPE_RESIZED = 1 << 0,
     LIBTERM_EVENTS_TYPE_KEYPRESS = 1 << 1,
 } Libterm_Events_Event_Type;

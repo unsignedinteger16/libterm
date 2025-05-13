@@ -124,12 +124,12 @@ void clean() {
 
 void render() {
     libterm_clear_screen();
-    libterm_set_cursor_pos(LIBTERM_CREATE_CURSOR_POSITION(0, floor((state.size.columns - ARR_SIZE(title_string)) / 2)));
+    libterm_set_cursor_pos(LIBTERM_CREATE_CURSOR_POSITION(floor((state.size.columns - ARR_SIZE(title_string)) / 2), 0));
     printf("%s", title_string);
     int coloringStart = floor((state.size.columns - biggest_option_lenght()) / 2);
     for(int i = 0; i < ARR_SIZE(menu_options); i++) {
         int textStart = floor((state.size.columns - strlen(menu_options[i].string)) / 2);
-        libterm_set_cursor_pos(LIBTERM_CREATE_CURSOR_POSITION(3 + i, coloringStart));
+        libterm_set_cursor_pos(LIBTERM_CREATE_CURSOR_POSITION(coloringStart, 3 + i));
         if(state.selectedOption == i) {
             libterm_set_background_color(LIBTERM_CREATE_COLOR(0xFFFFFF));
             libterm_set_foreground_color(LIBTERM_CREATE_COLOR(0x181818));
