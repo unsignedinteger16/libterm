@@ -14,10 +14,10 @@
 
 Libterm_Result _libterm_events_queue_init(_Libterm_Events_Queue *queue) {
     if(!queue) return LIBTERM_INVALID_ARGS;
-    queue->allocated = _ALLOCATION_CHUNK;
+    queue->allocated = ALLOCATION_CHUNK;
     queue->used = 0;
     queue->offset = 0;
-    queue->data = malloc(_ALLOCATION_CHUNK * sizeof(Libterm_Events_Event));
+    queue->data = malloc(ALLOCATION_CHUNK * sizeof(Libterm_Events_Event));
     if(!queue->data) return LIBTERM_BUY_MORE_RAM;
     return LIBTERM_SUCCESS;
 } 
@@ -31,7 +31,7 @@ Libterm_Result _libterm_events_queue_free(_Libterm_Events_Queue *queue) {
 Libterm_Result _libterm_events_queue_push(_Libterm_Events_Queue *queue, Libterm_Events_Event event) {
     if(!queue) return LIBTERM_INVALID_ARGS;
     if(queue->used + queue->offset >= queue->allocated) {
-        queue->allocated += _ALLOCATION_CHUNK;
+        queue->allocated += ALLOCATION_CHUNK;
         Libterm_Events_Event *new = realloc(queue->data, (queue->allocated) * sizeof(Libterm_Events_Event));
         if(!new) {
             _libterm_events_queue_free(queue);
