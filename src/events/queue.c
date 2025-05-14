@@ -31,12 +31,11 @@ Libterm_Result _libterm_events_queue_free(_Libterm_Events_Queue *queue) {
 Libterm_Result _libterm_events_queue_push(_Libterm_Events_Queue *queue, Libterm_Events_Event event) {
     if(!queue) return LIBTERM_INVALID_ARGS;
     if(queue->used + queue->offset >= queue->allocated) {
-        Libterm_Events_Event *new = realloc(queue->data, (queue->allocated + 64) * sizeof(Libterm_Events_Event));
+        Libterm_Events_Event *new = realloc(queue->data, (queue->allocated += 64) * sizeof(Libterm_Events_Event));
         if(!new) {
             _libterm_events_queue_free(queue);
             return LIBTERM_BUY_MORE_RAM;
         }
-        queue->allocated += 64;
     }
     queue->data[queue->offset + queue->used++] = event; 
 }
