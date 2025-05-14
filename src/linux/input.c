@@ -53,7 +53,7 @@ Libterm_Result libterm_read_key(Libterm_Key *key) {
     if(c == '\x1b') {
         char seq[3];
 
-        if(read(STDIN_FILENO, &seq[0], 1) != 1) return LIBTERM_ESCAPE_KEY;
+        if(read(STDIN_FILENO, &seq[0], 1) != 1) return LIBTERM_SUCCESS;
         if(seq[0] == '[') {
             if(read(STDIN_FILENO, &seq[1], 1) != 1) {
                 *key = LIBTERM_ALT_KEY('[');

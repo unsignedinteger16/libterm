@@ -23,5 +23,5 @@ LIBTERM_EXTERN Libterm_Result libterm_exit_raw_mode();
  
 LIBTERM_EXTERN Libterm_Result libterm_enter_alternate_screen_buffer();
 LIBTERM_EXTERN Libterm_Result libterm_exit_alternate_screen_buffer();
- 
+
 LIBTERM_EXTERN Libterm_Result libterm_get_terminal_size(Libterm_Terminal_Size *size);
