@@ -9,6 +9,7 @@
 #include "initialization.h"
 
 #include <stdbool.h>
+#include <stdio.h>
 #include <termios.h>
 #include <unistd.h>
 
