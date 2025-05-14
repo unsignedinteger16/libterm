@@ -14,6 +14,8 @@
 
 #include <stddef.h>
 
+#define ALLOCATION_CHUNK 256;
+
 typedef struct {
     size_t allocated;
     size_t used;
