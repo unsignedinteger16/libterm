@@ -48,12 +48,6 @@ Libterm_Result _libterm_events_queue_poll(_Libterm_Events_Queue *queue, Libterm_
 
     if(queue->used == 0) {
         queue->offset = 0;
-        Libterm_Events_Event *new = realloc(queue->data, 64 * sizeof(Libterm_Events_Event));
-        if(!new) {
-            _libterm_events_queue_free(queue);
-            return LIBTERM_BUY_MORE_RAM;
-        }
-        queue->allocated = 64;
     }
 
     return LIBTERM_SUCCESS;
